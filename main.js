@@ -14,25 +14,52 @@
 
 // MILESTONE 1:
 // Iniziamo implementando il programma senza alcuna estetica: usando esclusivamente due input e un bottone (non stilizzati), realizziamo le specifiche scritte sopra. La risposta finale (o output) sarà anch’essa da scrivere in console. 
-const km = document.getElementById("km");
-const age = document.getElementById("age");
-const buttonCheckPrice = document.getElementById("price");
 
-function getPrice (){
-    console.log(km.value);
-    console.log(age.value);
-    const kmUser = km.value;
-    const priceTicket = 0.21*kmUser;
-    const ageUser = age.value;
-    if (ageUser < 18){
-        console.log((priceTicket)-(priceTicket*0.20));       
-    } else if (ageUser > 65){
-        console.log((priceTicket)-(priceTicket*0.40));        
-    } else console.log(priceTicket);
+//id del form
+const kmField = document.getElementById("km-field");
+const ageField = document.getElementById("age-field");
+const usernameField = document.getElementById("username-field");
+const formEl = document.querySelector("form");
+
+//id della card
+const km = document.getElementById("km");
+let age = document.getElementById("age");
+let username = document.getElementById("username");
+let priceTicketDef = document.getElementById("price");
+
+
+function getPrice (e){
+    e.preventDefault();
+    console.log(kmField.value);
+    console.log(ageField.value);
+    console.log(usernameField.value);
+
+    //valori dei campi di input del form
+    let userNameValue = usernameField.value;
+    const kmFieldValue = kmField.value;
+    const ageFieldValue = ageField.value;
+
+    const priceTicket = (0.21*kmFieldValue).toFixed(2);
+
+    username.innerHTML = userNameValue;
+
+    if (ageFieldValue.includes("Minorenne")){
+        priceTicketDef.innerHTML = ((priceTicket)-(priceTicket*0.20)+ " €");  
+        age.innerHTML = ageFieldValue; 
+
+        console.log(age);
+            
+    } else if (ageFieldValue .includes("Over 65")){
+        priceTicketDef.innerHTML = ((priceTicket)-(priceTicket*0.40)+ " €");
+        age.innerHTML = ageFieldValue;     
+    } else {      
+        priceTicketDef.innerHTML = priceTicket + " €";
+        age.innerHTML = ageFieldValue;  
+    }    
     
 }
 
-buttonCheckPrice.addEventListener('click', getPrice);
+formEl.addEventListener('submit', getPrice);
 
 
 

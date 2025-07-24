@@ -1,0 +1,33 @@
+/* #region Common */
+:root
+{
+  /* Color Schema inside root element */
+  --bt-page-bg: ba1450;
+  --bt-primary: #ba1450;
+  --bt-secondary: #818181;
+  --bt-text-color-primary: #ba1450;
+  --bt-text-color-secondary: white;
+  --bt-text-color-terzary: #1d1d1d;
+
+}
+
+
+
+body{
+    background-color: var(--bt-primary);
+    color: #fff;
+}
+
+.form-label{
+    color: var(--bt-primary)
+}
+
+#name{
+    background-color: var(--bt-secondary);
+    color: var(--bt-text-color-terzary)
+}
+
+#price-field{
+    background-color: var(--bt-primary);
+    border: var(--bt-primary) solid 1px;
+}
