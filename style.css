@@ -2,7 +2,7 @@
 :root
 {
   /* Color Schema inside root element */
-  --bt-page-bg: ba1450;
+  --bt-page-bg: #ba1450;
   --bt-primary: #ba1450;
   --bt-secondary: #818181;
   --bt-text-color-primary: #ba1450;
@@ -15,7 +15,7 @@
 
 body{
     background-color: var(--bt-primary);
-    color: #fff;
+    color: var(--bt-text-color-secondary);
 }
 
 .form-label{
